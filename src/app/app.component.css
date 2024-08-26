@@ -1,0 +1,6 @@
+form input,
+form label,
+form select {
+  display: block; /* Makes elements appear on separate lines */
+  margin: 5px; /* Adds some spacing between elements */
+}

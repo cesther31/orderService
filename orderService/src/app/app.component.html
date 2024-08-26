@@ -1,0 +1,19 @@
+<h2>Order System</h2>
+<table>
+  <thead>
+    <th>Index</th>
+    <th>Buyer</th>
+    <th>Product</th>
+    <th>Cnt</th>
+    <th>Total Price</th>
+  </thead>
+  <tbody>
+    <tr *ngFor=" let order of orders; let i = index">
+      <td>{{i}}</td>
+      <td>{{order.buyer}}</td>
+      <td>{{order.product}}</td>
+      <td>{{order.productCnt}}</td>
+      <td>{{order.totalPrice}}</td>
+    </tr>
+  </tbody>
+</table>

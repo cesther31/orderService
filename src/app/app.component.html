@@ -1,0 +1,96 @@
+<h1>Order System</h1>
+
+<div>
+  <h2>Make your order</h2>
+  <form [formGroup]="myGroup" (ngSubmit)="onSubmit()">
+    <table class="form-table">
+      <tbody>
+        <tr>
+          <td>
+            <label for="buyer">Buyer:</label>
+            <input type="text" id="buyer" formControlName="buyer">
+          </td>
+          <td>
+            <label for="product">Product:</label>
+            <select formControlName="product" (change)="calculateTotalPrice()">
+              <option *ngFor="let product of products" [ngValue]="product">
+                {{ product.product }}
+              </option>
+            </select>
+          </td>
+          <td>
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" formControlName="quantity" (input)="calculateTotalPrice()">
+          </td>
+          <td>
+            <label for="totalPrice">Total Price:</label>
+            <span>{{ myGroup.get('totalPrice')?.value | currency:'USD':'symbol' }}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="submit">Submit Order</button>
+  </form>
+</div>
+
+<div class="order-list">
+  <table>
+    <thead>
+      <tr>
+        <th>Index</th>
+        <th>Buyer</th>
+        <th>Product</th>
+        <th>Cnt</th>
+        <th>Total Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders; let i = index">
+        <td>{{ i }}</td>
+        <td>{{ order.buyer }}</td>
+        <td>{{ order.product }}</td>
+        <td>{{ order.cnt }}</td>
+        <td>{{ order.totalPrice | currency:'USD':'symbol' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <h2>Add Products</h2>
+  <form [formGroup]="myProduct" (ngSubmit)="onSubmitProduct()">
+    <table class="form-table">
+      <tbody>
+        <tr>
+          <td>
+            <label for="product">Product:</label>
+            <input type="text" id="product" formControlName="product">
+          </td>
+          <td>
+            <label for="price">Price:</label>
+            <input type="number" id="price" formControlName="price">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="submit">Add new product</button>
+  </form>
+</div>
+
+<h2>Product List</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Index</th>
+      <th>Product</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products; let i = index">
+      <td>{{ i }}</td>
+      <td>{{ product.product }}</td>
+      <td>{{ product.price | currency:'USD':'symbol' }}</td>
+    </tr>
+  </tbody>
+</table>

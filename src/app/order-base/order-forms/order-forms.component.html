@@ -1,0 +1,40 @@
+<!-- <form #form="ngForm" (ngSubmit)="handleSubmit(form)">
+  Order Name:
+  <input [(ngModel)]="order.product" name="name" [ngModelOptions]="{standalone:true}" />
+
+<label>
+  <input type="radio" 
+          name="isCool" 
+          [value]="true"
+          required 
+          #orderName="ngModel"
+          [ngModel]="order?.isCool" 
+          (ngModelChange)="toggleIsCool($event)"
+          /> Order is cool
+</label>
+<label>
+  <input 
+    type="radio" 
+    name="isCool" 
+    [value]="false" 
+    [ngModel]="order?.isCool" 
+  /> Order is NOT cool
+</label>
+<label>
+  <input type="checkbox" name="acceptTerms" id="acceptTerms" class="form-check-input" required [(ngModel)]="order.acceptTerms">Accept Terms?
+  
+</label>
+<label>
+  Order Type:
+  <select name="orderType" [ngModel]="order?.name">
+    <option *ngFor="let type of orderType" [value]="type.key" [selected]="type.value === order.type">{{ type.value }}</option>
+  </select>
+</label>
+<button type="submit" [disabled]="!form.valid">Save</button>
+<button type="button" (click)="back()">Go Back</button>
+</form>
+<div>
+  MODEL: {{ order | json }}
+  FORM: {{ form.value | json }}
+  ERRORS: <div *ngIf="!orderName.pristine">NOT PRISTINE!</div>
+</div> -->
