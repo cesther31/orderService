@@ -1,4 +1,4 @@
-FROM eclipse-temurin:17-jdk-apline
+FROM eclipse-temurin:17-jdk-alpine
 WORKDIR /app
 COPY target/orderService.jar orderService.jar
 EXPOSE 8080
